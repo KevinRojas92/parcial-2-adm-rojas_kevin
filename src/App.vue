@@ -1,28 +1,44 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+
+<div id="app">
+  <ModalItem/>
+
+  <SueldoUsuarios/>
+
+  <ResultadosItems/>
+</div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import ModalItem from './components/ModalItem.vue'
+import SueldoUsuarios from './components/SueldoUsuarios.vue'
+import ResultadosItems from './components/ResultadosItems.vue'
 
 export default {
   name: 'App',
+
+  data: function () {
+    return {
+      sueldoU1: "",
+      sueldoU2: "",
+
+      modal: false,
+
+      motivo: "",
+      valor: "",
+
+      factura: {},
+
+      allFacturas: []
+    }
+  },
+
   components: {
-    HelloWorld
+    ModalItem,
+    SueldoUsuarios,
+    ResultadosItems
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
