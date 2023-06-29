@@ -2,8 +2,6 @@
 
 <div>
     <div>
-        <!--agregar-nueva-factura @mostrar-modal="mostrarModal"></agregar-nueva-factura-->
-    
         <div>
             <h2>Mis facturas:</h2>
 
