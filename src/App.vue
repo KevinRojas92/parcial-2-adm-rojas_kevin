@@ -1,9 +1,9 @@
 <template>
 
 <div id="app">
-  <ModalItem/>
-
   <SueldoUsuarios/>
+
+  <ModalItem/>
 
   <ResultadosItems/>
 </div>
@@ -12,9 +12,9 @@
 
 <script>
 
-import ModalItem from './components/ModalItem.vue'
-import SueldoUsuarios from './components/SueldoUsuarios.vue'
-import ResultadosItems from './components/ResultadosItems.vue'
+import SueldoUsuarios from './components/SueldoUsuarios.vue';
+import ModalItem from './components/ModalItem.vue';
+import ResultadosItems from './components/ResultadosItems.vue';
 
 export default {
   name: 'App',
@@ -36,8 +36,8 @@ export default {
   },
 
   components: {
-    ModalItem,
     SueldoUsuarios,
+    ModalItem,
     ResultadosItems
   }
 }
