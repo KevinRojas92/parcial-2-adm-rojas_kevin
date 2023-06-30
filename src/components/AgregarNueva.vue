@@ -14,36 +14,36 @@ export default {
 
     data: function () {
         return {
-            modal: false
+            modal: false,
+            sueldoTotal: 0,
+            porcentajeSueldoU1: 0,
+            porcentajeSueldoU2: 0
         }
     },
 
     methods: {
-        // calcularPorcentajes () {
-        //     sueldoTotal = parseFloat(this.sueldoU1) + parseFloat(this.sueldoU2);
-
-        //     porcentajeSueldoU1 = (parseFloat(this.sueldoU1) * 100) / sueldoTotal;
-
-        //     porcentajeSueldoU2 = (parseFloat(this.sueldoU2) * 100) / sueldoTotal;
-        // },
-
         agregarNueva () {
-            console.log('Se activo el boton de agregar');
-
-            this.cambiarModal();
-            // if (localStorage.length > 0) {
-            //     this.sueldosLocal = JSON.parse(localStorage.getItem("sueldos"));
+            if (localStorage.length > 0) {
+                this.sueldosLocal = JSON.parse(localStorage.getItem("sueldos"));
     
-            //     this.sueldoU1 = this.sueldosLocal.sueldoU1;
-            //     this.sueldoU2 = this.sueldosLocal.sueldoU2;
+                this.sueldoU1 = this.sueldosLocal.sueldoU1;
+                this.sueldoU2 = this.sueldosLocal.sueldoU2;
 
-            //     this.cambiarModal();
+                this.cambiarModal();
 
-            //     this.calcularPorcentajes();
-            // } else {
-            //     alert("Recuerda que antes de agregar una nueva factura debes ingresar los sueldos de cada usuario");
-            //     console.log("no hay datos");
-            // }
+                this.calcularPorcentajes( this.sueldoU1,  this.sueldoU2);
+            } else {
+                alert("Recuerda que antes de agregar una nueva factura debes ingresar los sueldos de cada usuario");
+                console.log("no hay datos");
+            }
+        },
+
+        calcularPorcentajes (sueldoU1, sueldoU2) {
+            this.sueldoTotal = parseFloat(sueldoU1) + parseFloat(sueldoU2);
+
+            this.porcentajeSueldoU1 = (parseFloat(sueldoU1) * 100) / this.sueldoTotal;
+
+            this.porcentajeSueldoU2 = (parseFloat(sueldoU2) * 100) / this.sueldoTotal;
         },
 
         cambiarModal () {
