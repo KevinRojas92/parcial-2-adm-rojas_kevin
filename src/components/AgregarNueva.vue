@@ -44,6 +44,10 @@ export default {
             this.porcentajeSueldoU1 = (parseFloat(sueldoU1) * 100) / this.sueldoTotal;
 
             this.porcentajeSueldoU2 = (parseFloat(sueldoU2) * 100) / this.sueldoTotal;
+
+            localStorage.setItem("porcentajeSueldoU1", JSON.stringify(this.porcentajeSueldoU1));
+
+            localStorage.setItem("porcentajeSueldoU2", JSON.stringify(this.porcentajeSueldoU2));
         },
 
         cambiarModal () {
