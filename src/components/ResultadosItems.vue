@@ -5,12 +5,12 @@
         <div>
             <h2>Mis facturas:</h2>
 
-            <p style="margin-top: 20px;" v-if="!facturasStorage">Aún no has agregado facturas.</p>
+            <p style="margin-top: 20px;" v-if="arrayFacturas.length == 0">Aún no has agregado facturas.</p>
 
-            <div v-for="i in facturasStorage">
+            <div v-for="(i, index) in arrayFacturas">
                 <div>
                     <h3>{{i.razon}}</h3>
-                    <button>x</button>
+                    <button @click="borrar(index)">x</button>
                 </div>
     
                 <div style="margin-top: 25px;">
@@ -39,7 +39,7 @@ export default {
     name: 'ResultadosItems',
 
     props: {
-        
+        arrayFacturas: []
     },
 
     data: function () {
@@ -47,5 +47,27 @@ export default {
             facturasStorage: JSON.parse(localStorage.getItem("facturas"))
         }
     },
+
+    mounted () {
+        if (this.facturasStorage.length > 0) {
+            this.facturasStorage.forEach(element => {
+                this.arrayFacturas.push(element);
+            });
+        } else {
+            console.log("No hay datos en LocalStorage");
+        }
+    },
+
+    methods: {
+        borrar (index) {
+            this.arrayFacturas.splice(index, 1);
+
+            localStorage.removeItem("facturas");
+
+            if (this.arrayFacturas.length > 0) {
+                localStorage.setItem("facturas", JSON.stringify(this.arrayFacturas));
+            }
+        }
+    }
 }
 </script>

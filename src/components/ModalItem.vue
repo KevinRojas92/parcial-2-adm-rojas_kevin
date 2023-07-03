@@ -23,16 +23,21 @@
     </div>
 
     <AgregarNueva/>
+
+    <ResultadosItems/>
 </div>
 
 <div v-else>
     <AgregarNueva @mostrar-modal="mostrarModal"/>
+
+    <ResultadosItems :arrayFacturas="allFacturas"/>
 </div>
 
 </template>
 
 <script>
 import AgregarNueva from './AgregarNueva.vue';
+import ResultadosItems from './ResultadosItems.vue';
 
 export default {
     name: 'ModalItem',
@@ -55,7 +60,8 @@ export default {
     },
 
     components: {
-        AgregarNueva
+        AgregarNueva,
+        ResultadosItems
     },
 
     methods: {
