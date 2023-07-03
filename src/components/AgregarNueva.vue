@@ -1,6 +1,6 @@
 <template>
 
-<button @click="agregarNueva">Agregar nueva factura</button>
+<button class="separacion_contenedores" @click="agregarNueva">Agregar nueva factura</button>
 
 </template>
     

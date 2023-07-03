@@ -1,8 +1,8 @@
 <template>
 
 <form action="">
-    <div>
-        <label for="usuario1">{{usuario1}}</label>
+    <div class="bg-red">
+        <label for="usuario1" class="text-red">{{usuario1}}</label>
         <input id="usuario1" type="number" name="usuario1" :placeholder="sueldoU1" v-model="sueldoU1" @change="guardarSueldos">
     </div>
             

@@ -2,28 +2,28 @@
 
 <div>
     <div>
-        <div>
-            <h2>Mis facturas:</h2>
+        <div class="separacion_contenedores organizador_res">
+            <h2 class="separacion_contenedores">Mis facturas:</h2>
 
             <p style="margin-top: 20px;" v-if="arrayFacturas.length == 0">Aún no has agregado facturas.</p>
 
-            <div v-for="(i, index) in arrayFacturas">
-                <div>
+            <div class="resultado_individual" v-for="(i, index) in arrayFacturas">
+                <div class="header_resultado">
                     <h3>{{i.razon}}</h3>
                     <button @click="borrar(index)">x</button>
                 </div>
     
-                <div style="margin-top: 25px;">
+                <div class="resultados" style="margin-top: 25px;">
                     <p>Usuario 1</p>
                     <p>${{i.precioUsuario1}}</p>
                 </div>
     
-                <div style="margin-top: 20px;">
+                <div class="resultados" style="margin-top: 20px;">
                     <p>Usuario 2</p>
                     <p>${{i.precioUsuario2}}</p>
                 </div>
     
-                <div>
+                <div class="resultado_total">
                     <p>Total</p>
                     <p>{{i.precio}}</p>
                 </div>

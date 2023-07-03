@@ -1,8 +1,8 @@
 <template>
 
 <div v-if="modal == true">
-    <div>
-        <div>
+    <div class="cont_modal">
+        <div class="header_agregar">
             <h3>Agrega una factura</h3>
             <a href="" @click="cerrar">x</a>
         </div>
@@ -21,13 +21,9 @@
     
         <button @click="agregar">Agregar</button>
     </div>
-
-    <AgregarNueva/>
-
-    <ResultadosItems/>
 </div>
 
-<div v-else>
+<div class="cont_resultados" v-else>
     <AgregarNueva @mostrar-modal="mostrarModal"/>
 
     <ResultadosItems :arrayFacturas="allFacturas"/>
