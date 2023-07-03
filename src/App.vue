@@ -4,8 +4,6 @@
   <SueldoUsuarios/>
 
   <ModalItem/>
-
-  <ResultadosItems/>
 </div>
 
 </template>
@@ -14,7 +12,6 @@
 
 import SueldoUsuarios from './components/SueldoUsuarios.vue';
 import ModalItem from './components/ModalItem.vue';
-import ResultadosItems from './components/ResultadosItems.vue';
 
 export default {
   name: 'App',
@@ -38,7 +35,6 @@ export default {
   components: {
     SueldoUsuarios,
     ModalItem,
-    ResultadosItems
   }
 }
 </script>
