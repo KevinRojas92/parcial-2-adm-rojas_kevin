@@ -51,7 +51,21 @@ export default {
 
             factura: {},
 
-            allFacturas: []
+            allFacturas: [],
+
+            facturasStorage: JSON.parse(localStorage.getItem("facturas"))
+        }
+    },
+
+    mounted () {
+        if (this.facturasStorage == null) {
+            console.log("No hay datos en LocalStorage");
+        } else {
+            this.facturasStorage.forEach(element => {
+                this.allFacturas.push(element);
+            });
+
+            console.log(this.allFacturas);
         }
     },
 
@@ -95,8 +109,6 @@ export default {
                 this.allFacturas.push(this.factura);
 
                 this.factura = {};
-
-                console.log(this.allFacturas);
 
                 localStorage.setItem("facturas", JSON.stringify(this.allFacturas));
                 this.cerrar ();

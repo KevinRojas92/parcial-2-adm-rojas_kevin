@@ -5,9 +5,9 @@
         <div class="separacion_contenedores organizador_res">
             <h2 class="separacion_contenedores">Mis facturas:</h2>
 
-            <p style="margin-top: 20px;" v-if="arrayFacturas.length == 0">Aún no has agregado facturas.</p>
+            <p style="margin-top: 20px;" v-if="copiaArrayFacturas.length == 0">Aún no has agregado facturas.</p>
 
-            <div class="resultado_individual" v-for="(i, index) in arrayFacturas" :key="index">
+            <div class="resultado_individual" v-for="(i, index) in copiaArrayFacturas" :key="index">
                 <div class="header_resultado">
                     <h3>{{i.razon}}</h3>
                     <button @click="borrar(index)">x</button>
@@ -39,33 +39,37 @@ export default {
     name: 'ResultadosItems',
 
     props: {
-        arrayFacturas: []
+        arrayFacturas: Array
     },
 
     data: function () {
         return {
-            facturasStorage: JSON.parse(localStorage.getItem("facturas"))
+            facturasStorage: JSON.parse(localStorage.getItem("facturas")),
+
+            copiaArrayFacturas: this.arrayFacturas
         }
     },
 
     mounted () {
-        if (this.facturasStorage.length > 0) {
-            this.facturasStorage.forEach(element => {
-                this.arrayFacturas.push(element);
-            });
-        } else {
+        if (this.facturasStorage == null) {
             console.log("No hay datos en LocalStorage");
+        } else {
+            this.copiaArrayFacturas = [];
+
+            this.facturasStorage.forEach(element => {
+                this.copiaArrayFacturas.push(element);
+            });
         }
     },
 
     methods: {
         borrar (index) {
-            this.arrayFacturas.splice(index, 1);
+            this.copiaArrayFacturas.splice(index, 1);
 
             localStorage.removeItem("facturas");
 
-            if (this.arrayFacturas.length > 0) {
-                localStorage.setItem("facturas", JSON.stringify(this.arrayFacturas));
+            if (this.copiaArrayFacturas.length > 0) {
+                localStorage.setItem("facturas", JSON.stringify(this.copiaArrayFacturas));
             }
         }
     }

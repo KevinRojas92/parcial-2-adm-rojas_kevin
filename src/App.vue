@@ -34,7 +34,7 @@
   
     components: {
       SueldoUsuarios,
-      ModalItem,
+      ModalItem
     }
   }
 </script>
