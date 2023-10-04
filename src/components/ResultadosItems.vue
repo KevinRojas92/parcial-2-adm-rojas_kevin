@@ -7,7 +7,7 @@
 
             <p style="margin-top: 20px;" v-if="arrayFacturas.length == 0">Aún no has agregado facturas.</p>
 
-            <div class="resultado_individual" v-for="(i, index) in arrayFacturas">
+            <div class="resultado_individual" v-for="(i, index) in arrayFacturas" :key="index">
                 <div class="header_resultado">
                     <h3>{{i.razon}}</h3>
                     <button @click="borrar(index)">x</button>

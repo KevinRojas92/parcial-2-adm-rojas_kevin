@@ -10,8 +10,15 @@
 }
 
 body {
-    height: calc(100vh - 30px);
     background: linear-gradient(192.01deg, #011126 0%, #B5BFAE 56.9%);
+}
+
+#main {
+    height: fit-content;
+}
+
+#app {
+    padding-bottom: 430px;
 }
 
 header {
