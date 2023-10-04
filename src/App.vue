@@ -6,9 +6,9 @@
     <ModalItem/>
   </div>
   
-  </template>
+</template>
   
-  <script>
+<script>
   
   import SueldoUsuarios from './components/SueldoUsuarios.vue';
   import ModalItem from './components/ModalItem.vue';
@@ -37,4 +37,4 @@
       ModalItem,
     }
   }
-  </script>
+</script>

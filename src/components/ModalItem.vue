@@ -1,6 +1,6 @@
 <template>
 
-<div v-if="modal == true">
+<div class="modal" v-if="modal == true">
     <div class="cont_modal">
         <div class="header_agregar">
             <h3>Agrega una factura</h3>
